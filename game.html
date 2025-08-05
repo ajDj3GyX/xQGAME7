@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楚汉棋争 - 对战中</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dynamic-gradient-bg">
+    <div class="container">
+        <div class="glass-card">
+            <header class="game-header">
+                <div class="game-title-group">
+                    <h1><i class="fa-solid fa-chess-rook"></i>楚汉棋争</h1>
+                    <div class="game-info-tags">
+                        <span class="text-gray-600">房间: <span id="roomCode" class="room-code-tag"></span></span>
+                        <div id="playerColor" class="player-color-tag"></div>
+                    </div>
+                </div>
+                <div id="gameStatus" class="info">游戏初始化中...</div>
+            </header>
+
+            <main class="game-layout">
+                <section class="chessboard-area">
+                    <div class="chessboard-wrapper">
+                        <div id="chessboard">
+                            <div class="river"><span>楚 河</span><span>漢 界</span></div>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="info-panel">
+                    <div class="info-card">
+                        <h2><i class="fa-solid fa-cogs"></i>操作面板</h2>
+                        <div class="control-buttons">
+                            <button id="undoBtn" class="btn btn-warning"><i class="fa-solid fa-rotate-left"></i>悔棋</button>
+                            <button id="surrenderBtn" class="btn btn-danger"><i class="fa-solid fa-flag"></i>认输</button>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h2><i class="fa-solid fa-scroll"></i>对局规则</h2>
+                        <ul class="rules-list">
+                             <li><i class="fa-solid fa-chess-pawn" style="color:#ef4444"></i><span>红方先行，轮流走子。</span></li>
+                             <li><i class="fa-solid fa-hand-pointer" style="color:#2563eb"></i><span>单击己方棋子选中，再单击目标位置移动。</span></li>
+                             <li><i class="fa-solid fa-hourglass-half" style="color:#f59e0b"></i><span>悔棋需对方同意后生效。</span></li>
+                             <li><i class="fa-solid fa-trophy" style="color:#16a34a"></i><span>将死或对方认输则获胜。</span></li>
+                        </ul>
+                    </div>
+                </aside>
+            </main>
+        </div>
+    </div>
+
+    <dialog id="game-modal">
+        <div id="modal-content" class="modal-content"></div>
+    </dialog>
+
+    <script src="https://cdn.ably.io/lib/ably.min-1.2.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
